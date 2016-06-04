@@ -1,24 +1,35 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
+    	<%= image_tag "logo.png" %>
+    </div>
+    <div class="col-md-6">
+      </br>
+      </br>
+      </br>
       <h1>Connecting Families to Services</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
       <h2>A project of the St. Petersburg office of Education and Community Engagement</h2>
       <p>
         Welcome to our digital portal. We connect you to service providers that help facilitate successful educational outcomes for the residents of the City of St. Petersburg.</p>
     </div>
   </div>
   <div class="row">
+
     <section class="col-md-6 col-md-offset-3">
       <h1>Search For a Support Service</h1>
-      <%= form_tag(providers_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Providers" %>
-        <%= submit_tag "Search", :businessname => nil %>
+      <%= form_tag(providers_path, :method => "get", id: "search-form", class: "form-group") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Providers", class: "form-control" %>
+        <%= submit_tag "Search", :businessname => nil, class: "btn btn-default" %>
       <% end %>
     </section>
   </div>
 
   <script src="http://d3js.org/d3.v3.min.js"></script>
-  
+
 <script>
 
 var categories = [
@@ -65,7 +76,7 @@ var categories = [
                     "level": "#fe9001",
                   }
         ]
-      },  
+      },
       {
         "name": "Health Services",
         "parent": "Which Services do you need?",
@@ -183,7 +194,7 @@ var categories = [
 var margin = {top: 10, right: 120, bottom: 10, left: 220},
   width = 960 - margin.right - margin.left,
   height = 700 - margin.top - margin.bottom;
-  
+
 var i = 0,
   duration = 750,
   root;
