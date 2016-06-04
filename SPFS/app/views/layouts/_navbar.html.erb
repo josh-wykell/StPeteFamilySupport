@@ -1,0 +1,16 @@
+<div class="navbar-header">
+  <div class="navbar-brand">
+    <%= link_to "Sunshine Family Connection", root_path %>
+  </div>
+</div>
+<ul class="nav navbar-nav navbar-left">
+  <li>
+    <%= link_to "About", about_path, class:'root-link-nav' %>
+  </li>
+  <li>
+    <%= link_to "Privacy", privacy_path, class:'root-link-nav' %>
+  </li>
+</ul>
+<div class="navbar-right">
+  <%= link_to "Register as a Provider", new_provider_path, class: "btn btn-primary navbar-btn" %>
+</div>
