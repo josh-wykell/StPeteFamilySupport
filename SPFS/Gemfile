@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'devise'
 gem 'puma'
+gem 'faker', '~>1.6.3'
 
 group :development, :test do
   gem 'better_errors'
