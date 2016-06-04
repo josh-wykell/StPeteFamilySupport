@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Phylogenetic Inference</title>
-    <style>
+    <title>Tree Diagram</title>
+  <style>
   
   .Aligner {
     display: flex;
@@ -29,10 +29,10 @@
   .link {
     fill: none;
     stroke: #ccc;
-    stroke-width: 2px;
+    stroke-width: 3px;
   }
   
-    </style>
+  </style>
 
   </head>
 
@@ -44,96 +44,157 @@
   
 <script>
 
-var treeData_crc_17 = [
+var categories = [
   {
     "name": "Which Services do you need?",
     "parent": "null",
-    "value": 95,
-    "type": "darkturquoise",
-    "level": "darkturquoise",
+    "value": 105,
+    "type": "#72b8c9",
+    "level": "#72b8c9",
     "children": [
       {
         "name": "Education",
-        "parent": "0",
-        "value": 48,
-        "type": "dodgerblue",
-        "level": "dodgerblue",
+        "parent": "Which Services do you need?",
+        "value": 60,
+        "type": "#fed3a5",
+        "level": "#fed3a5",
+        "children": [
+                  {
+                    "name": "Tutoring",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                  },
+                  {
+                    "name": "Mentoring",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                  },
+                  {
+                    "name": "ESL",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                  },
+                  {
+                    "name": "Special Needs",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                  }
+        ]
       },  
       {
         "name": "Health Services",
-        "parent": "0",
-        "value": 48,
-        "type": "dodgerblue",
-        "level": "dodgerblue",
-      }, 
-      {
-        "name": "Social Services",
-        "parent": "0",
-        "value": 48,
-        "type": "dodgerblue",
-        "level": "dodgerblue",
+        "parent": "Which Services do you need?",
+        "value": 60,
+        "type": "#fed3a5",
+        "level": "#fed3a5",
         "children": [
-          {
-            "name": "2",
-            "parent": "1",
-            "value": 35,
-            "type": "mediumseagreen",
-            "level": "LimeGreen",
-            "children": [
-                        {
-                          "name": "3",
-                          "parent": "2",
-                          "value": 33,
-                          "type": "mediumseagreen",
-                          "level": "LimeGreen",
-                        }
-                        ]
-          },
+                    {
+                    "name": "Medicine",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Nutrition",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+        ]
+      },
+
+      {
+        "name": "Mental Health",
+        "parent": "Which Services do you need?",
+        "value": 60,
+        "type": "#fed3a5",
+        "level": "#fed3a5",
+        "children": [
+                    {
+                    "name": "Addiction",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Counseling",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Therapy",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    "children": [
+                                {
+                                "name": "Group",
+                                "parent": "Education",
+                                "value": 40,
+                                "type": "#fe5e31",
+                                "level": "#fe5e31",
+                                },
+                                {
+                                "name": "Peer2Peer",
+                                "parent": "Education",
+                                "value": 40,
+                                "type": "#fe5e31",
+                                "level": "#fe5e31",
+                                }
+                    ]
+                    },
+        ]
+      },
+
       {
         "name": "Social Services",
-        "parent": "0",
-        "value": 48,
-        "type": "dodgerblue",
-        "level": "dodgerblue"
-      },
-        {
-        "name": "Social Services",
-        "parent": "0",
-        "value": 45,
-        "type": "LimeGreen",
-        "level": "LimeGreen",
-        },
-          {
-            "name": "4",
-            "parent": "1",
-            "value": 22,
-            "type": "mediumseagreen",
-            "level": "LimeGreen",
-          },
-          {
-            "name": "5",
-            "parent": "1",
-            "value": 21,
-            "type": "mediumseagreen",
-            "level": "LimeGreen",
-            "children":[
-                      {
-                        "name": "6",
-                        "parent": "5",
-                        "value": 16,
-                        "type": "mediumseagreen",
-                        "level": "LimeGreen",
-                      },
-
-                      ]
-          },
-          {
-            "name": "7",
-            "parent": "1",
-            "value": 21,
-            "type": "mediumseagreen",
-            "level": "LimeGreen",
-          },
+        "parent": "Which Services do you need?",
+        "value": 60,
+        "type": "#fed3a5",
+        "level": "#fed3a5",
+        "children": [
+                    {
+                    "name": "Childcare",
+                    "parent": "Social Services",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Food",
+                    "parent": "Social Services",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Shelter",
+                    "parent": "Social Services",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Transportation",
+                    "parent": "Social Services",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    }
         ]
       },
     ]
@@ -142,9 +203,9 @@ var treeData_crc_17 = [
 
 
 // ************** Generate the tree diagram  *****************
-var margin = {top: 20, right: 120, bottom: 20, left: 120},
+var margin = {top: 10, right: 120, bottom: 10, left: 220},
   width = 960 - margin.right - margin.left,
-  height = 500 - margin.top - margin.bottom;
+  height = 700 - margin.top - margin.bottom;
   
 var i = 0,
   duration = 750,
@@ -162,14 +223,39 @@ var svg = d3.select("body").append("svg")
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-root = treeData_crc_17[0];
+root = categories[0];
 root.x0 = height / 2;
-root.y0 = 0;
-  
+root.y0 = width/2;
+
+var nodes = flatten(root);
+nodes.forEach(function(d) {
+  d._children = d.children;
+  d.children = null;
+});
+
+// Updated this to the flatten function()
+//root.children.forEach(click);
+// collapse all upon load
+//click(root);
+
 update(root);
 
+
 d3.select(self.frameElement).style("height", "500px");
+
+// Returns a list of all nodes under the root.
+function flatten(root) {
+  var nodes = [], i = 0;
+
+  function recurse(node) {
+    if (node.children) node.children.forEach(recurse);
+    if (!node.id) node.id = ++i;
+    nodes.push(node);
+  }
+
+  recurse(root);
+  return nodes;
+}
 
 function update(source) {
 
