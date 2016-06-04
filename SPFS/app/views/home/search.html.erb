@@ -17,4 +17,324 @@
     </section>
   </div>
 
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  
+<script>
+
+var categories = [
+  {
+    "name": "Which Services do you need?",
+    "parent": "null",
+    "value": 105,
+    "type": "#72b8c9",
+    "level": "#72b8c9",
+    "children": [
+      {
+        "name": "Education",
+        "parent": "Which Services do you need?",
+        "value": 60,
+        "type": "#fed3a5",
+        "level": "#fed3a5",
+        "children": [
+                  {
+                    "name": "Tutoring",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                  },
+                  {
+                    "name": "Mentoring",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                  },
+                  {
+                    "name": "ESL",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                  },
+                  {
+                    "name": "Special Needs",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                  }
+        ]
+      },  
+      {
+        "name": "Health Services",
+        "parent": "Which Services do you need?",
+        "value": 60,
+        "type": "#fed3a5",
+        "level": "#fed3a5",
+        "children": [
+                    {
+                    "name": "Medicine",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Nutrition",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+        ]
+      },
+
+      {
+        "name": "Mental Health",
+        "parent": "Which Services do you need?",
+        "value": 60,
+        "type": "#fed3a5",
+        "level": "#fed3a5",
+        "children": [
+                    {
+                    "name": "Addiction",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Counseling",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Therapy",
+                    "parent": "Education",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    "children": [
+                                {
+                                "name": "Group",
+                                "parent": "Education",
+                                "value": 40,
+                                "type": "#fe5e31",
+                                "level": "#fe5e31",
+                                },
+                                {
+                                "name": "Peer2Peer",
+                                "parent": "Education",
+                                "value": 40,
+                                "type": "#fe5e31",
+                                "level": "#fe5e31",
+                                }
+                    ]
+                    },
+        ]
+      },
+
+      {
+        "name": "Social Services",
+        "parent": "Which Services do you need?",
+        "value": 60,
+        "type": "#fed3a5",
+        "level": "#fed3a5",
+        "children": [
+                    {
+                    "name": "Childcare",
+                    "parent": "Social Services",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Food",
+                    "parent": "Social Services",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Shelter",
+                    "parent": "Social Services",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    },
+                    {
+                    "name": "Transportation",
+                    "parent": "Social Services",
+                    "value": 50,
+                    "type": "#fe9001",
+                    "level": "#fe9001",
+                    }
+        ]
+      },
+    ]
+  }
+];
+
+
+// ************** Generate the tree diagram  *****************
+var margin = {top: 10, right: 120, bottom: 10, left: 220},
+  width = 960 - margin.right - margin.left,
+  height = 700 - margin.top - margin.bottom;
+  
+var i = 0,
+  duration = 750,
+  root;
+
+var tree = d3.layout.tree()
+  .size([height, width]);
+
+var diagonal = d3.svg.diagonal()
+  .projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("body").append("svg")
+  .attr("width", width + margin.right + margin.left)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+root = categories[0];
+root.x0 = height / 2;
+root.y0 = width/2;
+
+var nodes = flatten(root);
+nodes.forEach(function(d) {
+  d._children = d.children;
+  d.children = null;
+});
+
+// Updated this to the flatten function()
+//root.children.forEach(click);
+// collapse all upon load
+//click(root);
+
+update(root);
+
+
+d3.select(self.frameElement).style("height", "500px");
+
+// Returns a list of all nodes under the root.
+function flatten(root) {
+  var nodes = [], i = 0;
+
+  function recurse(node) {
+    if (node.children) node.children.forEach(recurse);
+    if (!node.id) node.id = ++i;
+    nodes.push(node);
+  }
+
+  recurse(root);
+  return nodes;
+}
+
+function update(source) {
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse(),
+    links = tree.links(nodes);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+  // Update the nodes…
+  var node = svg.selectAll("g.node")
+    .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("g")
+    .attr("class", "node")
+    .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+    .on("click", click);
+
+  nodeEnter.append("circle")
+   .attr("r", function(d) { return d.value; })
+   .style("stroke", function(d) { return d.type; })
+   .style("fill", "#fff");
+
+  nodeEnter.append("text")
+    .attr("x", 0)
+    .attr("dy", ".35em")
+    .attr("text-anchor", "middle")
+    .text(function(d) { return d.name; });
+
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+    .duration(duration)
+    .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeUpdate.select("circle")
+   .attr("r", function(d) { return d.value; })
+   .style("stroke", function(d) { return d.type; })
+   .style("fill", function(d) { return d.level; });
+
+  nodeUpdate.select("text")
+    .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit().transition()
+    .duration(duration)
+    .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+    .remove();
+
+  nodeExit.select("circle")
+    .attr("r", 1e-6);
+
+  nodeExit.select("text")
+    .style("fill-opacity", 1e-6);
+
+  // Update the links…
+  var link = svg.selectAll("path.link")
+    .data(links, function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("path", "g")
+    .attr("class", "link")
+    .attr("d", function(d) {
+    var o = {x: source.x0, y: source.y0};
+    return diagonal({source: o, target: o});
+    });
+
+  // Transition links to their new position.
+  link.transition()
+    .duration(duration)
+    .attr("d", diagonal);
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+    .duration(duration)
+    .attr("d", function(d) {
+    var o = {x: source.x, y: source.y};
+    return diagonal({source: o, target: o});
+    })
+    .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+  d.x0 = d.x;
+  d.y0 = d.y;
+  });
+
+}
+
+// Toggle children on click.
+function click(d) {
+  if (d.children) {
+  d._children = d.children;
+  d.children = null;
+  } else {
+  d.children = d._children;
+  d._children = null;
+  }
+  update(d);
+}
+
+</script>
+
 </div>
