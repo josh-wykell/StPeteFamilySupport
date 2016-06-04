@@ -1,28 +1,6 @@
-# require "CSV"
-# ["db/providers.csv", "db/providers2.csv"].each do |filename|
-#   CSV.foreach(filename) do |row|
-#     name = row[0] || "Provider"
-#     phone = row[3] || "0000000000"
-#     description = row[9] || "We help people!"
-#
-#     Provider.create!(
-#       businessname: name,
-#       firstname: row[1],
-#       lastname: row[2],
-#       phonenumber: phone,
-#       email: row[4],
-#       street: row[5],
-#       city: row[6],
-#       state: row[7],
-#       zip: row[8],
-#       description: description,
-#       url: row[10],
-#       active: true
-#     )
-#   end
-# end
 
-unless Provider.count > 0
+
+unless Provider.count > 1
   30.times do
     Provider.create!(
           businessname: Faker::StarWars.character,

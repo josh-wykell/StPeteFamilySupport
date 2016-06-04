@@ -1,49 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Providers</h1>
+<h1>Providers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Businessname</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Phonenumber</th>
-      <th>Email</th>
-      <th>Street</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Description</th>
-      <th>Url</th>
-      <th>Active</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @providers.each do |provider| %>
-      <tr>
-        <td><%= provider.businessname %></td>
-        <td><%= provider.firstname %></td>
-        <td><%= provider.lastname %></td>
-        <td><%= provider.phonenumber %></td>
-        <td><%= provider.email %></td>
-        <td><%= provider.street %></td>
-        <td><%= provider.city %></td>
-        <td><%= provider.state %></td>
-        <td><%= provider.zip %></td>
-        <td><%= provider.description %></td>
-        <td><%= provider.url %></td>
-        <td><%= provider.active %></td>
-        <td><%= link_to 'Show', provider %></td>
-        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @providers.in_groups_of(4, false) do |providers| %>
+  <div class="row">
+    <% providers.each do |provider| %>
+      <div class="col-lg-3 main_theme_layout member_index_layout">
+        <h4><%= provider.businessname %></h4>
+        <h5>><%= provider.phonenumber %>, <%= provider.email %></h5>
+        <h5><%= provider.street %><br>
+            <%= provider.city %> <%= provider.state %>, <%= provider.zip %></h5>
+        <p><%= provider.description %></p>
+        <p><%= link_to provider.url, provider.url%></p>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
+  </div>
+<% end %>
 <br>
-
-<%= link_to 'New Provider', new_provider_path %>

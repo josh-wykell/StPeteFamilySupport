@@ -1,10 +1,13 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
-  # GET /providers
-  # GET /providers.json
+
   def index
-    @providers = Provider.all
+    if params[:search]
+      @providers = Provider.search(params[:search])
+    else
+      @providers = Provider.all
+    end
   end
 
   # GET /providers/1
