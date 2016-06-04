@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Providers</h1>
-
-<% @providers.in_groups_of(4, false) do |providers| %>
-  <div class="row">
-    <% providers.each do |provider| %>
-      <div class="col-lg-3 main_theme_layout member_index_layout">
-        <h4><%= provider.businessname %></h4>
-        <h5>><%= provider.phonenumber %>, <%= provider.email %></h5>
-        <h5><%= provider.street %><br>
-            <%= provider.city %> <%= provider.state %>, <%= provider.zip %></h5>
-        <p><%= provider.description %></p>
-        <p><%= link_to provider.url, provider.url%></p>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<div class="header"><h1>Providers</h1></div>
+<div class="provider_index">
+  <% @providers.in_groups_of(4, false) do |providers| %>
+    <div class="row">
+      <% providers.each do |provider| %>
+        <div class="col-lg-3 main_theme_layout member_index_layout">
+          <h4><%= provider.businessname %></h4>
+          <h5>><%= provider.phonenumber %>, <%= provider.email %></h5>
+          <h5><%= provider.street %><br>
+              <%= provider.city %> <%= provider.state %>, <%= provider.zip %></h5>
+          <p><%= provider.description %></p>
+          <p><%= link_to provider.url, provider.url%></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 <br>
