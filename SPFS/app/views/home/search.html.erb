@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-md-8">
@@ -10,14 +11,10 @@
   <div class="row">
     <section class="col-md-6 col-md-offset-3">
       <h1>Search For a Support Service</h1>
-      <form>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Enter a support category">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Search</button>
-          </span>
-        </div>
-      </form>
+      <%= form_tag(providers_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Providers" %>
+        <%= submit_tag "Search", :businessname => nil %>
+      <% end %>
     </section>
   </div>
 
