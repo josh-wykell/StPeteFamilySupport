@@ -1,0 +1,8 @@
+Ruby Getting Started Notes
+http://guides.rubyonrails.org/getting_started.html#installing-rails
+
+Ruby Version Manager
+http://stackoverflow.com/questions/5059196/how-to-update-my-version-of-ruby-from-terminal
+
+How to use it to get Ruby 2.2
+https://rvm.io/rvm/upgrading
