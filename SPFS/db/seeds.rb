@@ -1,10 +1,42 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+
 #
+<<<<<<< HEAD
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Provider.create(businessname: 'Suzanne The Tutor', firstname: 'Suzanne', lastname: 'S.', city: 'St. Petersburg', state: 'FL', zip: '33706', description: 'I have over 7 years of experience in teaching ESOL to students from many countries. I have taught both large and small classrooms, one on one tutoring, and in home tutoring. I look forward to helping you expand your conversational and grammatical skills!
+#       businessname: name,
+#       firstname: row[1],
+#       lastname: row[2],
+#       phonenumber: phone,
+#       email: row[4],
+#       street: row[5],
+#       city: row[6],
+#       state: row[7],
+#       zip: row[8],
+#       description: description,
+#       url: row[10],
+#       active: true
+#     )
+#   end
+# end
 
-I am looking for motivated students who would like to expand and strengthen their reading, writing, and grammatical skills. I feel that the relationship between teacher and student is also very important and strive to have the friendliest possible of connections.', active: true, provider_type: "ESL/ESOL")
+unless Provider.count > 0
+  30.times do
+    Provider.create!(
+          businessname: Faker::StarWars.character,
+          firstname: Faker::StarWars.planet,
+          lastname: Faker::StarWars.specie,
+          phonenumber: "1234567890",
+          email: Faker::Internet.email,
+          street: Faker::Address.street_address,
+          city: Faker::Address.city,
+          state: Faker::Address.state_abbr,
+          zip: Faker::Address.zip,
+          description: Faker::Hipster.paragraph(3,true,4),
+          url: Faker::Internet.url,
+          active: true
+        )
+  end
+end
+>>>>>>> 8d61ef6313bcee297f66f8d36d0afec5ef4376a8
