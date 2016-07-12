@@ -51,7 +51,7 @@
   }
 /************ styles from Deanna *************/
 .jumbotron {
-  background: url("homepage.jpg") no-repeat center center fixed; 
+  background: url('<%= asset_url("homepage.jpg") %>') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -116,7 +116,7 @@ form#search-form .btn-default {
   margin: 0 auto;
 }
 .services {
-  text-align: center; 
+  text-align: center;
 }
 .services ul {
   margin-left: 20px;
@@ -132,4 +132,3 @@ form#search-form .btn-default {
   text-align: right;
   color: #FFF;
 }
-  
