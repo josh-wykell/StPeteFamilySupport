@@ -11,7 +11,7 @@
  * file per style scope.
  *
 
-
+//= require home
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -49,3 +49,87 @@
   .header {
     text-align: center;
   }
+/************ styles from Deanna *************/
+.jumbotron {
+  background: url("homepage.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+h1 {
+  color: #72B8C9;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+h2.tagline {
+  color: #4A4A4A;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+h3.searchSupport {
+  font-size: 45px;
+  color: #FFF;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000;
+}
+h3.directory {
+  color: #FE5E31;
+  text-align: center;
+  font-size: 30px;
+}
+input#search {
+  max-width: 500px;
+}
+.logo img {
+  width: 283px;
+  height: 113px;
+  margin-bottom: 20px;
+}
+.btn-primary {
+  background-color: #72B9CA!important;
+  border: none!important;
+}
+form#search-form {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+form#search-form .btn-default {
+  background-color: #FE5E31;
+  color: #FFF;
+  margin-top: 10px;
+  border: none;
+}
+.container .jumbotron, .container-fluid .jumbotron {
+  border-radius: 0!important;
+}
+.icon {
+  text-align: center;
+}
+.icon img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+.services {
+  text-align: center; 
+}
+.services ul {
+  margin-left: 20px;
+  text-align: left;
+  }
+  footer {
+  background-color: #72B9CA;
+  }
+ footer .container {
+    padding-top: 10px;
+   }
+.copyright {
+  text-align: right;
+  color: #FFF;
+}
+  

@@ -1,33 +1,70 @@
+
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+  <div class="col-md-6 logo">
     	<%= image_tag "logo.png" %>
     </div>
     <div class="col-md-6">
-      </br>
-      </br>
-      </br>
-      <h1>Connecting Families to Services</h1>
+      <h1>Connecting Families to the Services They Need</h1>
+      <h2 class="tagline">A project of the St. Petersburg office of Education and Community Engagement</h2>
     </div>
   </div>
+  
+ </div>
+ <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
-      <h2>A project of the St. Petersburg office of Education and Community Engagement</h2>
-      <p>
-        Welcome to our digital portal. We connect you to service providers that help facilitate successful educational outcomes for the residents of the City of St. Petersburg.</p>
-    </div>
-  </div>
-  <div class="row">
-
-    <section class="col-md-6 col-md-offset-3">
-      <h1>Search For a Support Service</h1>
+    <div class="jumbotron">
+    <div class="container">
+      <section class="col-lg-12">
+      <h3 class="searchSupport">Search For a Support Service</h3>
       <%= form_tag(providers_path, :method => "get", id: "search-form", class: "form-group") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Providers", class: "form-control" %>
         <%= submit_tag "Search", :businessname => nil, class: "btn btn-default" %>
       <% end %>
     </section>
+      
+    </div>
+    </div>
   </div>
+ <div class="container">
+ <div class="row">
+ <h3 class="directory">Search Directory by Category</h3>
+ </div>
+ <div class="row">
+ <div class="col-md-4 col-sm-12 icon"><%= image_tag "icon-social.png" %></div>
+ <div class="col-md-4 col-sm-12 icon"><%= image_tag "icon-education.png" %></div>
+  <div class="col-md-4 col-sm-12 icon"><%= image_tag "icon-medical.png" %></div>
+ </div>
+ <div class="row">
+ <div class="col-md-4 col-sm-12 services"> 
+ <h4>Social Services</h4>
+  <ul>
+  <li>Childcare</li>
+  <li>Food</li>
+  <li>Shelter</li>
+  <li>Transportation</li>
+  </ul></div>
+ <div class="col-md-4 col-sm-12 services">
+ <h4>Educational</h4>
+  <ul>
+  <li>Tutoring
+  <li>Mentoring
+  <li>ESL
+  <li>Special Needs Kids</li>
+</div>
+  <div class="col-md-4 col-sm-12 services">  
+   <h4>Health Services</h4>
+   <ul>
+    <li>Addiction</li>
+    <li>Autism</li>
+    <li>Art Therapy</li>
+   </ul>
+   </div>
+ </div>
+ </div>
 
+<div class="container">
+<h3 class="directory">Need help finding services? Try this wizard!</h3>
   <script src="http://d3js.org/d3.v3.min.js"></script>
 
 <script>
@@ -347,5 +384,5 @@ function click(d) {
 }
 
 </script>
-
+</div>
 </div>
