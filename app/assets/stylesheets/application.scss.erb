@@ -15,40 +15,43 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+.page {
+  min-height: 100%;
+  position: relative;
+}
 .Aligner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .node {
-    cursor: pointer;
-  }
+.node {
+  cursor: pointer;
+}
 
-  .node circle {
-    fill: #fff;
-    stroke: steelblue;
-    stroke-width: 3px;
-  }
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
 
-  .node text {
-    font: 14px sans-serif;
-  }
+.node text {
+  font: 14px sans-serif;
+}
 
-  .link {
-    fill: none;
-    stroke: #ccc;
-    stroke-width: 3px;
-  }
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 3px;
+}
 
-  .provider_index{
-    margin: 0px 25px 0px 25px;
-  }
+.provider_index{
+  margin: 0px 25px 0px 25px;
+}
 
-  .header {
-    text-align: center;
-  }
+.header {
+  text-align: center;
+}
 /************ styles from Deanna *************/
 .jumbotron {
   background: url('<%= asset_url("homepage.jpg") %>') no-repeat center center fixed;
@@ -121,14 +124,19 @@ form#search-form .btn-default {
 .services ul {
   margin-left: 20px;
   text-align: left;
-  }
-  footer {
+}
+footer {
   background-color: #72B9CA;
-  }
- footer .container {
+  margin-top: 5%;
+}
+footer .container {
     padding-top: 10px;
-   }
+}
 .copyright {
   text-align: right;
   color: #FFF;
+}
+
+.main_theme_layout.member_index_layout {
+  word-wrap: break-word;
 }
