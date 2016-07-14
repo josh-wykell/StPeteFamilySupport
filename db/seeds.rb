@@ -1,20 +1,20 @@
 
 
 unless Provider.count > 1
-  30.times do
+  40.times do
     Provider.create!(
-          businessname: Faker::StarWars.character,
-          firstname: Faker::StarWars.planet,
-          lastname: Faker::StarWars.specie,
-          phonenumber: "1234567890",
-          email: Faker::Internet.email,
-          street: Faker::Address.street_address,
-          city: Faker::Address.city,
-          state: Faker::Address.state_abbr,
-          zip: Faker::Address.zip,
-          description: Faker::Hipster.paragraph(3,true,4),
-          url: Faker::Internet.url,
-          active: true
-        )
+      businessname: Faker::Company.name,
+      firstname: Faker::Name.first_name,
+      lastname: Faker::Name.last_name,
+      phonenumber: Faker::Number.number(3) + "-" + Faker::Number.number(3) + "-" + Faker::Number.number(4),
+      email: Faker::Internet.email,
+      street: Faker::Address.street_address,
+      city: "Saint Petersburg",
+      state: "FL",
+      zip: Faker::Address.zip,
+      description: Faker::Lorem.paragraph(3,true,4),
+      url: Faker::Internet.url,
+      active: true
+    )
   end
 end
